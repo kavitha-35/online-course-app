@@ -1,0 +1,205 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "online-course-app": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/online-course-app",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.scss",
+              "src/assets/css/app.css",
+              "src/assets/css/app.rtl.css",
+              "src/assets/css/bootstrap-touchspin.css",
+              "src/assets/css/bootstrap-touchspin.rtl.css",
+             "src/assets/css/dropzone.css",
+              "src/assets/css/dropzone.rtl.css",
+              "src/assets/css/fancytree.css",
+              "src/assets/css/fancytree.rtl.css",
+              "src/assets/css/flatpickr-airbnb.css",
+              "src/assets/css/flatpickr-airbnb.rtl.css",
+              "src/assets/css/flatpickr.css",
+              "src/assets/css/flatpickr.rtl.css",
+              "src/assets/css/fontawesome.css",
+              "src/assets/css/fontawesome.rtl.css",
+              "src/assets/css/fullcalendar.css",
+              "src/assets/css/jvectormap.css",
+              "src/assets/css/material-icons.css",
+              "src/assets/css/material-icons.rtl.css",
+              "src/assets/css/nestable.css",
+              "src/assets/css/nestable.rtl.css",
+              "src/assets/css/quill.css",
+              "src/assets/css/quill.rtl.css",
+              "src/assets/css/sweetalert.css",
+              "src/assets/vendor/dropzone.min.css",
+              "src/assets/vendor/jquery-jvectormap.css",
+              "src/assets/vendor/perfect-scrollbar.css"
+
+            ],
+            "scripts": [
+              "src/assets/js/app-icons.js",
+              "src/assets/js/app-settings.js",
+              "src/assets/js/app.js",
+              "src/assets/js/chartjs-rounded-bar.js",
+              "src/assets/js/chartjs.js",
+              "src/assets/js/check-selected-row.js",
+              "src/assets/js/countdown.js",
+              "src/assets/js/dragula.js",
+              "src/assets/js/fancytree.js",
+              "src/assets/js/flatpickr.js",
+              "src/assets/js/fullcalendar.js",
+              "src/assets/js/hljs.js",
+              "src/assets/js/list.js",
+              "src/assets/js/messages.js",
+              "src/assets/js/nestable.js",
+              "src/assets/js/page.instructor-dashboard.js",
+              "src/assets/js/page.instructor-earnings.js",
+              "src/assets/js/page.student-dashboard.js",
+              "src/assets/js/page.ui-charts.js",
+              "src/assets/js/quill.js",
+              "src/assets/js/settings.js",
+              "src/assets/js/sweetalert.js",
+              "src/assets/js/toggle-check-all.js",
+              "src/assets/js/touchspin.js",
+              "src/assets/js/vector-maps.js",
+              "src/assets/vendor/bootstrap.min.js",
+              "src/assets/vendor/Chart.min.js",
+              "src/assets/vendor/dom-factory.js",
+              "src/assets/vendor/dropzone.min.js",
+              "src/assets/vendor/fullcalendar.min.js",
+              "src/assets/vendor/jquery.bootstrap-touchspin.js",
+              "src/assets/vendor/jquery.countdown.min.js",
+              "src/assets/vendor/jquery.fancytree-all.min.js",
+              "src/assets/vendor/jquery.jvectormap.min.js",
+              "src/assets/vendor/jquery.mask.min.js",
+              "src/assets/vendor/jquery.min.js",
+              "src/assets/vendor/jquery.nestable.js",
+              "src/assets/vendor/list.min.js",
+              "src/assets/vendor/moment-range.min.js",
+              "src/assets/vendor/moment.min.js",
+              "src/assets/vendor/perfect-scrollbar.min.js",
+              "src/assets/vendor/popper.min.js",
+              "src/assets/vendor/quill.min.js",
+              "src/assets/vendor/sweetalert.min.js",
+              "src/assets/vendor/vue.min.js"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "online-course-app:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "online-course-app:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "online-course-app:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "src/test.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.spec.json",
+            "karmaConfig": "karma.conf.js",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "tsconfig.app.json",
+              "tsconfig.spec.json",
+              "e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "e2e/protractor.conf.js",
+            "devServerTarget": "online-course-app:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "online-course-app:serve:production"
+            }
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "online-course-app",
+  "cli": {
+    "analytics": "bd0e0451-1bfa-4e91-b161-b03ae24c8639"
+  }
+}
